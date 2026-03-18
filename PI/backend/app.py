@@ -598,6 +598,14 @@ def health_check():
         'version': '1.0.0'
     }), 200
 
+@app.route('/', methods=['GET'])
+def raiz():
+    return jsonify({
+        'status': 'ok',
+        'mensagem': 'API ECOmida online',
+        'health': '/health'
+    }), 200
+
 # =================== TRATAMENTO DE ERROS ===================
 
 @app.errorhandler(404)

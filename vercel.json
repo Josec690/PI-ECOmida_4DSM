@@ -1,18 +1,15 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "PI/backend/app.py",
-      "use": "@vercel/python",
-      "config": {
-        "includeFiles": "PI/backend/static/**"
-      }
+  "functions": {
+    "PI/backend/app.py": {
+      "runtime": "python3.12",
+      "includeFiles": "PI/backend/static/**"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/PI/backend/app.py"
+      "source": "/(.*)",
+      "destination": "/PI/backend/app.py"
     }
   ]
 }
