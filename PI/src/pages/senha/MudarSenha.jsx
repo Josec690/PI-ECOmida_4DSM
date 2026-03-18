@@ -2,6 +2,7 @@ import './MudarSenha.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoPreta from '../../assets/Logo-Preta.png';
+import { API_URL } from '../../config/api';
 
 function MudarSenha() {
   const [senhaAtual, setSenhaAtual] = useState('');
@@ -18,7 +19,7 @@ function MudarSenha() {
     }
 
     const token = localStorage.getItem('token');
-    const response = await fetch('http://localhost:5000/alterar-senha', {
+    const response = await fetch(`${API_URL}/alterar-senha`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

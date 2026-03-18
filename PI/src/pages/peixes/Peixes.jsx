@@ -7,13 +7,14 @@ import bolinhoPeixe from '../../assets/bolinhoPeixe.jpg';
 import bolinhoBacalhau from '../../assets/bolinhoBacalhau.jpg';
 import arrozPeixe from '../../assets/arrozPeixe.jpg';
 import gratinadoPeixe from '../../assets/gratinadoPeixe.jpg';
+import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Peixes() {
   const [receitasDinamicas, setReceitasDinamicas] = useState([]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/receitas?categoria=peixes')
+    fetch(`${API_URL}/receitas?categoria=peixes`)
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao buscar receitas');
         return res.json();
@@ -26,7 +27,7 @@ function Peixes() {
       });
   }, []);
 
-  const baseUrlImagem = 'http://localhost:5000/static/';
+  const baseUrlImagem = API_STATIC_URL;
 
   return (
     <>

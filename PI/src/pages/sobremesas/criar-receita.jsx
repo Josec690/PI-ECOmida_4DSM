@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import './criar-receita.css';
+import { API_URL } from '../../config/api';
 
 function CriarReceita() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ function CriarReceita() {
   // Carregar dados da receita para edição
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:5000/receitas/${id}`)
+      fetch(`${API_URL}/receitas/${id}`)
         .then(res => res.json())
         .then(data => {
           if (data.receita) {
@@ -86,8 +87,8 @@ function CriarReceita() {
       if (imagem) formData.append('imagem', imagem);
 
       const url = id
-        ? `http://localhost:5000/receitas/${id}`
-        : 'http://localhost:5000/receitas';
+        ? `${API_URL}/receitas/${id}`
+        : `${API_URL}/receitas`;
 
       const resposta = await fetch(url, {
         method: id ? 'PUT' : 'POST',

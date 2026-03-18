@@ -7,13 +7,14 @@ import mazu from '../../assets/frangoMazu.jpg';
 import gratinado from '../../assets/gratinadoFrango.jpg';
 import macarronese from '../../assets/macarronese.jpg';
 import tortaDeFrango from '../../assets/tortaDeFrango.jpg';
+import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Aves() {
   const [receitasDinamicas, setReceitasDinamicas] = useState([]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/receitas?categoria=aves')
+    fetch(`${API_URL}/receitas?categoria=aves`)
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao buscar receitas');
         return res.json();
@@ -26,7 +27,7 @@ function Aves() {
       });
   }, []);
 
-  const baseUrlImagem = 'http://localhost:5000/static/';
+  const baseUrlImagem = API_STATIC_URL;
 
   return (
     <>

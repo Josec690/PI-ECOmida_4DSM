@@ -7,13 +7,14 @@ import saladaManga from '../../assets/saladaManga.jpg';
 import abacate from '../../assets/saladaAbacate.jpg';
 import grao from '../../assets/saladaGrao.webp';
 import beterraba from '../../assets/saladaBeterraba.jpg';
+import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Saladas() {
   const [receitasDinamicas, setReceitasDinamicas] = useState([]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/receitas?categoria=saladas')
+    fetch(`${API_URL}/receitas?categoria=saladas`)
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao buscar receitas');
         return res.json();
@@ -26,7 +27,7 @@ function Saladas() {
       });
   }, []);
 
-  const baseUrlImagem = 'http://localhost:5000/static/';
+  const baseUrlImagem = API_STATIC_URL;
 
   return (
     <>

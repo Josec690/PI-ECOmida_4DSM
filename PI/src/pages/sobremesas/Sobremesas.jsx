@@ -7,13 +7,14 @@ import sorvete from '../../assets/sorvete de morango.jpg';
 import torta from '../../assets/torta-de-limao.jpg';
 import bolo from '../../assets/bolo.jpg';
 import pave from '../../assets/pave.jpeg';
+import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Sobremesas() {
   const [receitasDinamicas, setReceitasDinamicas] = useState([]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/receitas?categoria=sobremesas')
+    fetch(`${API_URL}/receitas?categoria=sobremesas`)
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao buscar receitas');
         return res.json();
@@ -27,7 +28,7 @@ function Sobremesas() {
   }, []);
 
   // URL base para imagens armazenadas no backend (ajuste conforme seu backend)
-  const baseUrlImagem = 'http://localhost:5000/static/';
+  const baseUrlImagem = API_STATIC_URL;
 
   return (
     <>

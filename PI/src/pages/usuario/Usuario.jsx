@@ -3,6 +3,7 @@ import './Usuario.css';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config/api';
 
 function Usuario() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function Usuario() {
       return;
     }
 
-    fetch('http://localhost:5000/usuario', {
+    fetch(`${API_URL}/usuario`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => {
@@ -46,7 +47,7 @@ function Usuario() {
   const handleSalvar = async (campo) => {
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/usuario', {
+      const res = await fetch(`${API_URL}/usuario`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

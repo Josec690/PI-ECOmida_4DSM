@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import '../sobremesas/Bolo.css';
+import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Receita() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function Receita() {
 
   useEffect(() => {
     // Busca receita
-    fetch(`http://localhost:5000/receitas/${id}`)
+    fetch(`${API_URL}/receitas/${id}`)
       .then(res => res.json())
       .then(data => {
         if (data.receita) {
@@ -29,7 +30,7 @@ function Receita() {
     // Busca usuário logado (opcional: ajuste conforme seu sistema de autenticação)
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:5000/usuario', {
+      fetch(`${API_URL}/usuario`, {
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => res.json())
@@ -45,7 +46,7 @@ function Receita() {
   const enviarAvaliacao = async (nota) => {
     setAvaliando(true);
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:5000/receitas/${id}/avaliar`, {
+    const res = await fetch(`${API_URL}/receitas/${id}/avaliar`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +63,7 @@ function Receita() {
   };
 
   const imagemUrl = receita.imagem
-    ? (receita.imagem.startsWith('http') ? receita.imagem : `http://localhost:5000/static/${receita.imagem}`)
+    ? (receita.imagem.startsWith('http') ? receita.imagem : `${API_STATIC_URL}${receita.imagem}`)
     : null;
 
   // Função para deletar receita
@@ -70,7 +71,7 @@ function Receita() {
     if (!window.confirm('Tem certeza que deseja excluir esta receita?')) return;
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:5000/receitas/${id}`, {
+      const res = await fetch(`${API_URL}/receitas/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });

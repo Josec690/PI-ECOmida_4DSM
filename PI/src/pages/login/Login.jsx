@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import logoBranca from '../../assets/Logo-Branca.png';
+import { API_URL } from '../../config/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const resposta = await fetch('http://localhost:5000/login', {
+      const resposta = await fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, senha }),

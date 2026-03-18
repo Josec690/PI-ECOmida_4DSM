@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import './Doacao.css';
+import { API_URL } from '../../config/api';
 
 function ListaDoacoes() {
   const [doacoes, setDoacoes] = useState([]);
@@ -9,7 +10,7 @@ function ListaDoacoes() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/doacoes', {
+    fetch(`${API_URL}/doacoes`, {
       headers: {
         'Authorization': 'Bearer ' + token
       }

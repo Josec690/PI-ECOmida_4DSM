@@ -7,13 +7,14 @@ import legumes from '../../assets/legumes-carne.jpg';
 import lagarto from '../../assets/lagarto-molho-madeira.jpg';
 import panqueca from '../../assets/panqueca-de-carne.jpg';
 import picanha from '../../assets/picanha-na-manteiga.jpeg';
+import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Carnes() {
   const [receitasDinamicas, setReceitasDinamicas] = useState([]);
   const [erro, setErro] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/receitas?categoria=carnes')
+    fetch(`${API_URL}/receitas?categoria=carnes`)
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao buscar receitas');
         return res.json();
@@ -26,7 +27,7 @@ function Carnes() {
       });
   }, []);
 
-  const baseUrlImagem = 'http://localhost:5000/static/';
+  const baseUrlImagem = API_STATIC_URL;
 
   return (
     <>

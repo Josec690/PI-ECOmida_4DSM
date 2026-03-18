@@ -2,6 +2,7 @@ import './MudarSenha.css';
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logoPreta from '../../assets/Logo-Preta.png';
+import { API_URL } from '../../config/api';
 
 function RedefinirSenha() {
   const [token, setToken] = useState('');
@@ -30,7 +31,7 @@ function RedefinirSenha() {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/redefinir-senha', {
+      const response = await fetch(`${API_URL}/redefinir-senha`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

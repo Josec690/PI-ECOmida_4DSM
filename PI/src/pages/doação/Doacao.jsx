@@ -9,6 +9,7 @@ import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { Link } from 'react-router-dom';
+import { API_URL } from '../../config/api';
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl });
@@ -49,7 +50,7 @@ function Doacao() {
     try {
       // Pegue o token JWT do localStorage (ajuste conforme seu login)
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/doacoes', {
+      const response = await fetch(`${API_URL}/doacoes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

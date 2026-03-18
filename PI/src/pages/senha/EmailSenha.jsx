@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoPreta from '../../assets/Logo-Preta.png';
 import './EmailSenha.css';
+import { API_URL } from '../../config/api';
 
 function EmailSenha() {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ function EmailSenha() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/esqueci-senha', {
+      const response = await fetch(`${API_URL}/esqueci-senha`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

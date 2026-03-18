@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Cadastro.css';
 import logoBranca from '../../assets/Logo-Branca.png';
+import { API_URL } from '../../config/api';
 
 const Cadastro = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Cadastro = () => {
     e.preventDefault();
 
     try {
-      const resposta = await fetch('http://localhost:5000/cadastro', {
+      const resposta = await fetch(`${API_URL}/cadastro`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
