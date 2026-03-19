@@ -4,7 +4,7 @@ import Footer from '../../components/footer/Footer';
 import "../receitas/Receitas.css";
 import { Link } from 'react-router-dom';
 import mazu from '../../assets/frangoMazu.jpg';
-import gratinado from '../../assets/gratinadoFrango.jpg';
+import gratinado from '../../assets/gratinadoFrango.JPG';
 import macarronese from '../../assets/macarronese.jpg';
 import tortaDeFrango from '../../assets/tortaDeFrango.jpg';
 import { API_URL, API_STATIC_URL } from '../../config/api';

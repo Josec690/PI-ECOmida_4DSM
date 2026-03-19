@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import sorvete from '../../assets/sorvete de morango.jpg';
 import torta from '../../assets/torta-de-limao.jpg';
 import bolo from '../../assets/bolo.jpg';
-import pave from '../../assets/pave.jpeg';
+import pave from '../../assets/Pave.jpeg';
 import { API_URL, API_STATIC_URL } from '../../config/api';
 
 function Sobremesas() {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Bolo.css';
-import pave from '../../assets/pave.jpeg'; // Adicione a imagem correta do pavê
+import pave from '../../assets/Pave.jpeg'; // Adicione a imagem correta do pavê
 import Header from '../../components/header/Header';
 
 function Pave() {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import "../sobremesas/Bolo.css";
-import gratinadoMilho from '../../assets/gratinadoFrango.jpg'; 
+import gratinadoMilho from '../../assets/gratinadoFrango.JPG'; 
 import Header from '../../components/header/Header';
 
 function GratinadoFrango() {

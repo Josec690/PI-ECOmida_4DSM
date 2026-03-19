@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import peixeImg from '../../assets/peixe.jpeg'
 import carne from '../../assets/carne.jpg'
 import aves from '../../assets/aves.jpg'
-import pave from '../../assets/pave.jpeg'
+import pave from '../../assets/Pave.jpeg'
 import saladas from '../../assets/saladas.jpg'
 
 function Receitas() {

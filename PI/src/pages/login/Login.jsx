@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
-import logoBranca from '../../assets/Logo-Branca.png';
+import logoBranca from '../../assets/Logo-branca.png';
 import { API_URL } from '../../config/api';
 
 const Login = () => {

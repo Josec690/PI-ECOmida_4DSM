@@ -1,7 +1,7 @@
 import './MudarSenha.css'; 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoPreta from '../../assets/Logo-Preta.png';
+import logoPreta from '../../assets/Logo-preta.png';
 import { API_URL } from '../../config/api';
 
 function MudarSenha() {
